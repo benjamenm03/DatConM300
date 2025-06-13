@@ -434,6 +434,9 @@ public class DatFile {
         case M200:
             numBattCells = 6;
             break;
+        case M300:
+            numBattCells = 12;
+            break;
         case MavicPro:
             numBattCells = 3;
             break;
