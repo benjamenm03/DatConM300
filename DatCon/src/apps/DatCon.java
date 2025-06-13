@@ -323,7 +323,9 @@ public class DatCon extends JPanel
             fc.setSelectedFile(inputFile);
         }
         try {
-            int returnVal = fc.showOpenDialog(this);
+            // Use the application frame as the parent component to avoid
+            // IllegalComponentStateException when the panel is not yet visible
+            int returnVal = fc.showOpenDialog(frame);
             if (returnVal == JFileChooser.APPROVE_OPTION) {
                 File iFile = fc.getSelectedFile();
                 setDatFile(iFile);
@@ -594,7 +596,9 @@ public class DatCon extends JPanel
             } else if (source == outputDirTextField) {
                 if (outputDir != null)
                     dc.setSelectedFile(outputDir);
-                int returnVal = dc.showOpenDialog(this);
+                // Use the application frame as the parent component to avoid
+                // IllegalComponentStateException when the panel is not yet visible
+                int returnVal = dc.showOpenDialog(frame);
                 if (returnVal == JFileChooser.APPROVE_OPTION) {
                     setOutputDir(dc.getSelectedFile());
                     Persist.outputDirName = outputDirName;
